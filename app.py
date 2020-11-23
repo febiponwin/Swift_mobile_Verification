@@ -36,6 +36,8 @@ def addrec():
          if opt.qr_code_png(ids,cws):
             msg = msg + " and QR code has been generated"
             print ("Sending mail to the user")
+            # mailer.Mailer().send("febiponwin@gmail.com")
+            # imageMailer.Mailer().messageBody("cws")
             image_mail.Mailer().send_message(cws)
       except:
          con.rollback()
@@ -44,6 +46,10 @@ def addrec():
       finally:
          return render_template("result.html",msg = msg)
          con.close()
+
+@app.route('/validate_user')
+def validate_user():
+   return render_template('validate.html')
 
 @app.route('/list')
 def list():
@@ -55,6 +61,18 @@ def list():
    
    rows = cur.fetchall();
    return render_template("list.html",rows = rows)
+
+@app.route('/validate',methods = ['POST', 'GET'])
+def validate():
+   if request.method == 'POST':
+      ids = request.form['ids']
+      con = sql.connect("database.db")
+      con.row_factory = sql.Row
+      cur = con.cursor()
+      cur.execute("select * from user_info where id = (?)",(ids,))
+
+      rows = cur.fetchall();
+      return render_template("validate_result.html", rows=rows)
 
 
 if __name__ == '__main__':
