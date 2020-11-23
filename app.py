@@ -36,8 +36,6 @@ def addrec():
          if opt.qr_code_png(ids,cws):
             msg = msg + " and QR code has been generated"
             print ("Sending mail to the user")
-            # mailer.Mailer().send("febiponwin@gmail.com")
-            # imageMailer.Mailer().messageBody("cws")
             image_mail.Mailer().send_message(cws)
       except:
          con.rollback()
