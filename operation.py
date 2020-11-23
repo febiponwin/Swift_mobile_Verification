@@ -24,11 +24,6 @@ class operation:
 		return True
 
 
-	# opt = operation()
-#
-# time_value,encoded_value = opt.calculate_code("samuef","9003538230","moto g")
-# print (time_value)
-# print (encoded_value)
 			
 			
 
