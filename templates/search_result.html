@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+   <body>
+   <form action = "{{ url_for('update') }}" method = "POST">
+    {% for row in rows %}
+       CWS_ID<br>
+         <input type = "text" name = "cws" value = {{row["cws_id"]}} readonly/></br>
+         
+         Phone No<br>
+         <input type = "text" name = "phone_no" value = {{row["phone_no"]}} ></textarea><br>
+         
+         Phone Model<br>
+         <input type = "text" name = "phone_model"   value = '{{row["phone_model"]}}' /><br>
+     
+	   {% endfor %}  	
+         <input type = "submit" value = "Update" /><br>
+  
+    
+  
+      
+     </form>
+      
+   </body>
+</html>

@@ -8,6 +8,7 @@
             <td>Phone No</td>
             <td>Phone Model</td>
             <td>Created_time(IST)</td>
+			<td>Updated_time(IST)</td>
          </thead>
          
          {% for row in rows %}
@@ -15,7 +16,8 @@
                <td>{{row["cws_id"]}}</td>
                <td>{{row["phone_no"]}}</td>
                <td> {{ row["phone_model"]}}</td>
-               <td>{{row['created_time']}}</td>	
+               <td>{{row['created_time']}}</td>
+				<td>{{row['updated_time']}}</td>			   
             </tr>
          {% endfor %}
       </table>
